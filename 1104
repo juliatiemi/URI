@@ -1,0 +1,46 @@
+#include <stdio.h>
+#define MAX 100001
+int main()
+{
+	int a, b;
+	int ca, cb;
+	int num;
+	int al[MAX];
+	int be[MAX];
+	int c;
+	int d;
+
+	for(;;) {	
+		c = 0;
+		d = 0;
+		scanf("%d%d", &a, &b);
+		if(a == 0 && b == 0) break;
+		for(num = 0; num < MAX; num++) {
+			al[num] = 0;
+			be[num] = 0;
+		}
+		for(num = 0; num < a; num++) {
+			scanf("%d", &ca);
+			al[ca]++;
+		}
+		for(num = 0; num < b; num++) {
+			scanf("%d", &cb);
+			be[cb]++;
+		}
+		for(num = 0; num < MAX; num++) {
+			if(al[num] >= 1 && be[num] == 0) {
+				c++;
+			}
+			if(be[num] >= 1 && al[num] == 0) {
+				d++;
+			}
+		}
+		if(c >= d) {
+			printf("%d\n", d);
+		}
+		else {
+			printf("%d\n", c);
+		}
+	}
+	return 0;
+}
