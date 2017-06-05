@@ -1,0 +1,10 @@
+#include <stdio.h>
+int main() {
+	int tempo, vel, dist;
+	float litros;
+	scanf("%d%d", &tempo, &vel);
+	dist = vel * tempo;
+	litros = (float) dist / (float) 12;
+	printf("%.3f\n", litros);
+	return 0;
+}
