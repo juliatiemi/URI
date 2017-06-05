@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int somaimp (int x, int y) {
+	int z;
+	int a = 0;
+	if(x > y) {
+	for(z = (y+1); z < x; z++) {
+		if(z%2 != 0) {
+			a = a + z;
+		}
+	}
+	}
+	if(x < y) {
+	for(z = (x+1); z < y; z++) {
+		if(z%2 != 0) {
+			a = a + z;
+		}
+	}
+	}
+return a;
+}
+   
+int main () {
+    int x, y, w;
+    scanf("%d%d", &x, &y);
+    w = somaimp(x, y);
+    printf("%d\n", w);
+    return 0;
+}
