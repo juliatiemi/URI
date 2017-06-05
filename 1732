@@ -1,0 +1,132 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+  int entrada, x, y, min, max, aro, eixox, eixoy, contador, majax, majay;
+
+ while(scanf("%d", &entrada)!=EOF){
+
+  if(entrada == 1) {
+    printf("0 0\n");
+  }
+  else{
+
+  entrada = entrada - 1; //começa a contagem de 0
+  min = 1;
+  max = 6;
+  aro = 1;
+  contador = 0;
+
+  while(max < entrada) {
+    aro++;
+    min = max + 1;
+    max = max + (aro * 6);
+  }
+  majax = -1*aro;
+  majay = 0;
+
+  eixoy = (min-1) + (aro*3);
+  y = eixoy;
+
+  if(entrada == max){
+    majax = 1*aro;
+    majay = 0;
+  }
+  else if(entrada < eixoy) {
+    while(contador != aro && y != entrada) {
+      y--;
+      contador++;
+      majay++;
+    }
+    contador = 0;
+    while(contador != aro && y != entrada) {
+      y--;
+      contador++;
+    }
+    contador = 0;
+    while(contador != aro && y != entrada) {
+      y--;
+      contador++;
+      majay--;
+    }
+  }
+
+  else if(entrada > eixoy) {
+    while(contador != aro && y != entrada) {
+      y++;
+      contador++;
+      majay--;
+    }
+    contador = 0;
+    while(contador != aro && y != entrada) {
+      y++;
+      contador++;
+    }
+    contador = 0;
+    while(contador != aro && y != entrada) {
+      y++;
+      contador++;
+      majay++;
+    }
+  }
+
+  else {
+
+  }
+
+contador = 0;
+
+  eixox = eixoy;
+
+  x = eixox;
+  if(entrada == max){
+    majax = 1*aro;
+    majay = 0;
+  }
+  else if(entrada < eixox) {
+    while(contador != aro && x != entrada) {
+      x--;
+      contador++;
+    }
+    contador = 0;
+    while(contador != aro && x != entrada) {
+      x--;
+      contador++;
+      majax++;
+    }
+    contador = 0;
+    while(contador != aro && x != entrada) {
+      x--;
+      contador++;
+      majax++;
+    }
+  }
+
+  else if(entrada > eixox) {
+    while(contador != aro && x != entrada) {
+      x++;
+      contador++;
+      majax++;
+    }
+    contador = 0;
+    while(contador != aro && x != entrada) {
+      x++;
+      contador++;
+      majax++;
+    }
+    contador = 0;
+    while(contador != aro && x != entrada) {
+      x++;
+      contador++;
+    }
+  }
+
+  else {
+
+  }
+
+ printf("%d %d\n", majax, majay);
+  }
+ }
+ return 0;
+}
