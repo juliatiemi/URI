@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int fibonacci(int n) {
+
+	int fib;
+	int a = 0;
+	int b = 1;
+	int v;
+	if(n == 1) {
+		printf("0");
+	}
+	if(n == 2) {
+		printf("0 1");
+	}
+	if(n > 2) {
+		printf("0 1 ");
+	}
+	for(v = 3; v <= n; v++) {
+		fib = (a + b);
+		a = b;
+		b = fib;
+		if(v < n) {
+			printf("%d ", fib);
+		}
+		if(v == n) {
+			printf("%d", fib);			
+		}
+	}
+	printf("\n");
+	return 0;
+}
+
+int main() {
+
+	int n;
+	scanf("%d", &n);
+	fibonacci(n);
+	return 0;
+}
