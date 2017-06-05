@@ -1,0 +1,45 @@
+#include <stdio.h>
+int main() {
+	int sn, i, g, grenal = 0, vi = 0, vg = 0, empates = 0;
+	scanf("%d%d", &i, &g);
+	grenal++;
+	if(i > g) {
+		vi++;
+	}
+	if(i < g) {
+		vg++;
+	}
+	if(i == g) {
+		empates++;
+	}
+	for(;;) {
+		printf("Novo grenal (1-sim 2-nao)\n");
+		scanf("%d", &sn);
+		if(sn == 1) {
+			scanf("%d%d", &i, &g);
+			grenal++;
+			if(i > g) {
+				vi++;
+			}
+			if(i < g) {
+				vg++;
+			}
+			if(i == g) {
+				empates++;
+			}
+		}
+		else if(sn == 2) {
+			break;
+		}
+	}
+	if(grenal == 1) {
+		printf("%d grenal\nInter:%d\nGremio:%d\nEmpates:%d\nNao houve vencedor\n", grenal, vi, vg, empates);
+	}
+	else if(grenal > 1 && vi > vg) {
+		printf("%d grenais\nInter:%d\nGremio:%d\nEmpates:%d\nInter venceu mais\n", grenal, vi, vg, empates);
+	}
+	else if(grenal > 1 && vi < vg) {
+		printf("%d grenais\nInter:%d\nGremio:%d\nEmpates:%d\nGremio venceu mais\n", grenal, vi, vg, empates);
+	}
+	return 0;
+}
