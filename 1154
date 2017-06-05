@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main() {
+	int n;
+	float soma = 0, quant = 0;
+	float media =0 ;
+	for(;;) {
+		scanf("%d", &n);
+		if(n < 0) {
+			break;
+		}
+		soma = soma + n;
+		quant++;
+	}
+	media = soma/quant;
+	printf("%.2f\n", media);
+	return 0;
+}
+	
