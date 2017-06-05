@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main ()
+
+{
+	int N;
+	int F = 1;
+	int V;
+
+	scanf("%d", &V);
+
+	for(N = 1; N <= V; N++)
+	{
+		F = N * F;	
+	}
+
+	printf("%d\n", F);
+
+	return 0;
+}
