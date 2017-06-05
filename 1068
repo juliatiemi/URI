@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+	
+	int n, j, tam, para;
+	char op[1000];
+	while(1) {
+		scanf("%s", op);
+		if(feof(stdin)) break;
+		tam = strlen(op);
+		para = 0;
+		for(j = 0; j < tam; j++) {
+			if(op[j] == ')') {
+				para--;
+				if(para < 0) {
+					printf("incorrect\n");
+					break;
+				}
+			}
+			else if(op[j] == '(') {
+				para++;
+			}
+			if(j == (tam-1)) {
+				if(para == 0) {
+					printf("correct\n");
+				}
+				else {
+					printf("incorrect\n");
+				}
+			}
+		}
+	}
+	return 0;
+}
