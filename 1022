@@ -1,0 +1,105 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+typedef struct {
+		int a;
+		int b;
+}racional;
+
+racional soma(racional first, racional second) {
+	racional result;
+	result.a = first.a * second.b + second.a * first.b;
+	result.b = first.b * second.b;
+	return result;
+}
+
+racional sub(racional first, racional second) {
+	racional result;
+	result.a = first.a * second.b - second.a * first.b;
+	result.b = first.b * second.b;
+	return result;
+}
+
+racional mult(racional first, racional second) {
+	racional result;
+	result.a = first.a * second.a;
+	result.b = first.b * second.b;
+	return result;
+}
+
+racional divs(racional first, racional second) {
+	racional result;
+	result.a = first.a * second.b;
+	result.b = first.b * second.a;
+	return result;
+}
+
+int mdc(int x, int y){
+	if(y == 0) {
+		return abs(x);
+	}
+	else {
+		return mdc(y, x%y);
+	}
+}
+
+racional reduz(racional final) {
+	racional result;
+	result.a = final.a / mdc(final.a, final.b);
+	result.b = final.b / mdc(final.a, final.b);
+	return result;
+}
+
+void printerfraction(racional final) {
+	printf("%d/%d", final.a, final.b);
+}
+	
+
+int main() {
+	racional first;
+	racional second;
+	
+	int n, i;
+	char op;
+
+	scanf("%d", &n);
+	for (i = 0; i < n; i++) {
+		scanf("%d / %d %c %d / %d",  &first.a, &first.b, &op, &second.a, &second.b);
+		switch (op) {
+			case '+':
+			
+
+				printerfraction(soma(first, second));
+				printf(" = ");
+				printerfraction(reduz(soma(first, second)));
+				break;
+				
+			case '-':
+				printerfraction(sub(first, second));
+				printf(" = ");
+				printerfraction(reduz(sub(first, second)));
+				break;
+				
+			case '*':
+				printerfraction(mult(first, second));
+				printf(" = ");
+				printerfraction(reduz(mult(first, second)));
+				break;
+				
+			case '/':
+				printerfraction(divs(first, second));
+				printf(" = ");
+				printerfraction(reduz(divs(first, second)));
+				break;
+				
+			default:
+				return 0;
+			
+			}
+			printf("\n");
+	}
+	
+	return 0;
+	
+}
