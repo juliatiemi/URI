@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+
+float media_soma(float m[][12], int linha, char op) {
+	int j;
+	float soma = 0, media;
+		for(j = 0; j < 12; j++) {
+			soma = soma + m[linha][j];
+		}
+		if(op == 'S') {
+			return soma;
+		}
+		if(op == 'M') {
+			media = soma/12;
+			return media;
+		}
+}
+
+int main() {
+	char op;
+	int linha, i, j;
+	float m[12][12];
+	float result;
+	scanf("%d\n", &linha);
+	scanf("%c\n", &op);
+	for(i = 0; i < 12; i++) {
+		for(j = 0; j < 12; j++) {
+			scanf("%f", &m[i][j]);
+		}
+	}
+	result = media_soma(m, linha, op);
+	printf("%.1f\n", result);
+	return 0;
+}
