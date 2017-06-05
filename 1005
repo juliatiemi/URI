@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main (void)
+
+{
+	float stdA;
+	float stdB;
+	
+	scanf("%f %f", &stdA, &stdB);
+
+	float MEDIA = ((stdA * 3.5) + (stdB * 7.5)) / (3.5 + 7.5);
+	
+	printf("MEDIA = %.5f\n", MEDIA);
+
+return 0;
+
+}
