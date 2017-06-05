@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main ()
+{ 
+
+	float x, y, z;
+	float a, b, c;
+	float XYZ;
+	float ABC;
+	float XA;
+	
+	scanf("%f%f%f", &x, &y, &z);
+
+	scanf("%f%f%f", &a, &b, &c);
+
+	XYZ = y * z;
+	ABC = b * c;
+
+	XA = XYZ + ABC;
+
+	printf("VALOR A PAGAR: R$ %.2f\n", XA);
+	
+	return 0;
+	
+}
