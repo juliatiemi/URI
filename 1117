@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main () {
+
+	float nota;
+	float total = 0;
+	float media;
+	int x = 1;
+	while(x <= 2) {
+		scanf("%f", &nota);
+		if(nota < 0 || nota > 10) {
+			printf("nota invalida\n");
+		}
+		else {
+			total = nota + total;
+			x++;
+		}
+	}
+	media = (total/2);
+	printf("media = %.2f\n", media);
+	return 0;
+}
