@@ -1,0 +1,8 @@
+#include <stdio.h>
+int main() {
+	int x = 60, y = 90, dist, t;
+	scanf("%d", &dist);
+	t = dist / 0.5;
+	printf("%d minutos\n", t);
+	return 0;
+}
