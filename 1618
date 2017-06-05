@@ -1,0 +1,15 @@
+#include <stdio.h>
+int main() {
+	int ax, ay, bx, by, cx, cy, dx, dy, rx, ry, i, n;
+	scanf("%d", &n);
+	for(i = 1; i <= n; i++) {
+		scanf("%d%d%d%d%d%d%d%d%d%d", &ax, &ay, &bx, &by, &cx, &cy, &dx, &dy, &rx, &ry);
+		if(rx >= dx && rx <= cx && rx >= ax && rx <= bx && ry <= dy && ry >= ay && ry <= cy && ry >= by) {
+			printf("1\n");
+		}
+		else {
+			printf("0\n");
+		}
+	}
+	return 0;
+}
