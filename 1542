@@ -1,0 +1,27 @@
+#include <stdio.h>
+int paginas(float q, float d, float p) {
+    float porc = 0, total = 0, da;
+    porc = (p - q) * 100 / q;
+    total = (d*100/porc) * p;
+    return total;
+}
+int main() {
+    float q, d, p;
+    int resultado;
+    for(;;) {
+        scanf("%f%f%f", &q, &d, &p);
+        if(q == 0) {
+            break;
+        }
+        else {
+            resultado = paginas(q, d, p);
+            if(resultado == 1) {
+                printf("%d pagina\n", resultado);
+            }
+            else {
+                printf("%d paginas\n", resultado);
+            }
+        }
+    }
+        return 0;
+}
