@@ -1,0 +1,21 @@
+#include <stdio.h>
+int funcao(i) {
+	int x, X[10];
+	scanf("%d", &x);
+	if(x <= 0) {
+		X[i] = 1;
+	}
+	else {
+		X[i] = x;
+	}
+	return X[i];
+}
+
+int main() {
+	int a, i, x;
+	for(i = 0; i<10; i++) {
+	a = funcao(i);
+	printf("X[%d] = %d\n", i, a);
+	}
+	return 0;
+}
