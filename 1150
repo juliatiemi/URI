@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int ult (int x) {
+	int z;
+	int a = 0;
+	int v = 0;
+	scanf("%d", &z);
+	while(x >= z) {
+		scanf("%d", &z);
+	}
+	for(;;) {
+		a = (a + x);
+		x++;
+		v++;
+		if(a > z) {
+			break;
+		}
+	}
+	return v;
+}
+
+int main () {
+	int v, x;
+	scanf("%d", &x);
+	v = ult(x);
+	printf("%d\n", v);
+	return 0;
+}
