@@ -1,0 +1,30 @@
+#include <stdio.h>
+int main() {
+	int nump, x, m1, m2, m = 0, v1, v2, v = 0;
+	scanf("%d", &nump);
+	for(x = 1; x <= nump; x++) {
+		scanf("%d x %d", &m1, &v1);
+		scanf("%d x %d", &v2, &m2);
+		m = m1 + m2;
+		v = v1 + v2;
+		if(m > v) {
+			printf("Time 1\n");
+		}
+		else if(v > m) {
+			printf("Time 2\n");
+		}
+		else if(m = v) {
+			if(v1 > m2) {
+				printf("Time 2\n");
+			}
+			else if(m2 > v1) {
+				printf("Time 1\n");
+			}
+			else if(m2 == v1) {
+			printf("Penaltis\n");
+			}
+		}
+	}
+	return 0;
+}
+	
