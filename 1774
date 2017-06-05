@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+  int rot1;
+  int rot2;
+  int preco;
+} roteador;
+
+int main() {
+  int rot, cabo, i, j, menor, total, *cor;
+  roteador *par, *minimo;
+
+  scanf("%d%d", &rot, &cabo);
+  par = calloc(cabo, sizeof(roteador));
+  minimo = calloc(rot-1, sizeof(roteador));
+  cor = calloc(rot, sizeof(int));
+
+  for(i = 0; i < cabo; i++) {
+    scanf("%d%d%d", &par[i].rot1, &par[i].rot2, &par[i].preco);
+    par[i].rot1--;
+    par[i].rot2--;
+  }
+
+  cor[0] = 1;
+
+  for(i = 0; i < (rot-1); i++) {
+    menor = 9999999;
+    for (j = 0; j < cabo; j++){
+      if(cor[par[j].rot1] != cor[par[j].rot2]) {
+        if(par[j].preco < menor) {
+          menor = par[j].preco;
+          minimo[i].preco = par[j].preco;
+          minimo[i].rot1 = par[j].rot1;
+          minimo[i].rot2 = par[j].rot2;
+          //printf("%d\n", menor);
+        }
+      }
+    }
+    cor[minimo[i].rot1] = 1;
+    cor[minimo[i].rot2] = 1;
+  }
+
+
+  for (i = 0; i < (rot-1); i++) {
+    //printf("%d\n", minimo[i].preco);
+    total += minimo[i].preco;
+  }
+
+ printf("%d\n", total);
+
+  return 0;
+}
