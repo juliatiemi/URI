@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+
+  int N, i, j, k, prefixo = 0, tamanho, tamanho1, tamanho2;
+  char **palavra;
+  char litio;
+
+  while(1){
+    prefixo = 0;
+    scanf("%d", &N);
+    if(N == 0) {
+      return 0;
+    }
+    scanf("%c\n", &litio);
+    palavra = (char **) calloc(N, sizeof(char*));
+    palavra[0] = (char *) calloc(102, sizeof(char));
+
+    fgets(palavra[0], 102, stdin);
+
+    for(i = 1; i < N; i++) {
+      palavra[i] = (char *) calloc(102, sizeof(char));
+      fgets(palavra[i], 102, stdin);
+
+      for(j = (i-1); j >= 0; j--) {
+        if(prefixo == 1){
+          break;
+        }
+        else {
+          tamanho1 = strlen(palavra[i]);
+          tamanho2 = strlen(palavra[j]);
+
+          tamanho = tamanho1>tamanho2?tamanho2-1:tamanho1-1;
+
+          for(k = 0; k < tamanho; k++) {
+            if(palavra[j][k] != palavra[i][k]) {
+              break;
+            }
+          }
+          if(k == tamanho){
+            prefixo = 1;
+          }
+        }
+      }
+    }
+    printf("Conjunto %s\n", prefixo==1?"Ruim":"Bom");
+  }
+  return 0;
+}
