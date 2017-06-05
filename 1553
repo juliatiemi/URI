@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main()
+{
+	int N, K;
+	int P;
+	int vetor[101];
+	int num1;
+	int num2;
+	int a;
+
+	for(;;)
+	{
+		a = 0;				
+		scanf("%d%d", &N, &K);		
+		if(N == 0 && K == 0)
+		{
+			break;
+		}
+
+		for(num1 = 0; num1 < 101; num1++)
+		{
+			vetor[num1] = 0;
+		}
+		for(num1 = 1; num1 <= N; num1++)
+		{
+			scanf("%d", &P);
+			vetor[P]++;
+		}
+
+		for(num2 = 0; num2 < 101; num2++)
+		{
+        		if(vetor[num2] >= K)
+			{
+				a++;
+			}
+		}
+		printf("%d\n", a);
+	}
+	return 0;
+}
